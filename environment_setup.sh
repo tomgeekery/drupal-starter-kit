@@ -11,7 +11,12 @@ sudo apt-get upgrade -y
 sudo apt-get install lamp-server^ -y
 
 # Install extra php and misc packages.
-sudo apt-get install php5-gd php-pear make git phpmyadmin -y
+sudo apt-get install php5-gd php-pear php5-xdebug make git phpmyadmin -y
+sudo sh -c "echo 'xdebug.remote_enable=1' >> /etc/php5/conf.d/xdebug.ini"
+sudo sh -c "echo 'xdebug.remote_handler=dbgp' >> /etc/php5/conf.d/xdebug.ini"
+sudo sh -c "echo 'xdebug.remote_mode=req' >> /etc/php5/conf.d/xdebug.ini"
+sudo sh -c "echo 'xdebug.remote_host=127.0.0.1' >> /etc/php5/conf.d/xdebug.ini"
+sudo sh -c "echo 'xdebug.remote_port=9000' >> /etc/php5/conf.d/xdebug.ini"
 
 # Upload progress
 sudo pecl install uploadprogress
@@ -46,7 +51,7 @@ git config --global core.excludesfile .gitignore_global
 sudo service apache2 restart
 
 # Install Geany for basic code editing.
-sudo apt-get install geany -y
+sudo apt-get install geany geany-plugins -y
 
 # Display message with instructions what to do next.
 echo ""

@@ -61,7 +61,6 @@ echo Adding vhost entry to hosts file...
 echo 127.0.0.1"       "$NAME.local | sudo tee -a /etc/hosts
 echo Done.
 
-git config --global core.excludesfile ~/.gitignore_global
 git init
 git add .
 git commit -m "Initial commit."
