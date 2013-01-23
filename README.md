@@ -31,8 +31,8 @@ cd drupal-starter-kit
 
 chmod +x create_drupal_site.sh environment_setup.sh
 
-./environment_setup.sh (follow on screen prompts)
+./environment_setup.sh #follow on screen prompts
 
-./create_drupal_site.sh sitename (replace sitename with your desired site name)
+./create_drupal_site.sh sitename #replace sitename with your desired site name
 
 Script will output a local URL, type it into your favorite browser's address bar and get to work!

@@ -33,17 +33,14 @@ sudo a2enmod rewrite
 mkdir /home/$USER/htdocs
 sudo ln -s /home/$USER/htdocs /var/www/$USER
 
-# Download development script(s).
-cd ~/htdocs
-git clone https://github.com/tomgeekery/drupal-in-a-can
-cp ~/htdocs/drupal-in-a-can/.gitignore_global ~
+# Setup git information.
 echo -n "Enter your name for git commits: "
 read GIT_NAME
 echo -n "Enter your email for git commits: "
 read GIT_EMAIL
 git config --global user.name "'"$GIT_NAME"'"
 git config --global user.email $GIT_EMAIL 
-git config --global core.excludesfile ~/.gitignore_global
+git config --global core.excludesfile .gitignore_global
 
 # Restart apache.
 sudo service apache2 restart
