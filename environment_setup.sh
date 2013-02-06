@@ -35,8 +35,8 @@ rm package.xml
 sudo a2enmod rewrite
 
 # Setup htdocs in home folder
-mkdir /home/$USER/htdocs
-sudo ln -s /home/$USER/htdocs /var/www/$USER
+mkdir /home/$USER/websites
+sudo ln -s /home/$USER/websites /var/www/$USER
 
 # Setup git information.
 echo -n "Enter your name for git commits: "
@@ -44,8 +44,9 @@ read GIT_NAME
 echo -n "Enter your email for git commits: "
 read GIT_EMAIL
 git config --global user.name "'"$GIT_NAME"'"
-git config --global user.email $GIT_EMAIL 
-git config --global core.excludesfile .gitignore_global
+git config --global user.email $GIT_EMAIL
+cp .gitignore_global ~/
+git config --global core.excludesfile ~/.gitignore_global
 
 # Restart apache.
 sudo service apache2 restart
