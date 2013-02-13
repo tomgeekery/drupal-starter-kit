@@ -7,7 +7,7 @@ fi
 
 NAME=$1
 
-cd ~/websites
+cd ~/htdocs
 drush make https://raw.github.com/tomgeekery/compro/master/make/compro.make $NAME
 
 cd $NAME
@@ -38,8 +38,8 @@ echo "<VirtualHost *:80>" | sudo tee -a $APACHE/$NAME
 echo "        ServerName "$NAME.local | sudo tee -a $APACHE/$NAME
 echo "        ServerAlias *."$NAME.local | sudo tee -a $APACHE/$NAME
 echo "        DirectoryIndex index.php index.html" | sudo tee -a $APACHE/$NAME
-echo "        DocumentRoot /home/"$USER"/websites/"$NAME | sudo tee -a $APACHE/$NAME
-echo "        <Directory /home/"$USER"/websites/"$NAME">" | sudo tee -a $APACHE/$NAME
+echo "        DocumentRoot /home/"$USER"/htdocs/"$NAME | sudo tee -a $APACHE/$NAME
+echo "        <Directory /home/"$USER"/htdocs/"$NAME">" | sudo tee -a $APACHE/$NAME
 echo "                Options -Indexes FollowSymLinks" | sudo tee -a $APACHE/$NAME
 echo "                AllowOverride All" | sudo tee -a $APACHE/$NAME
 echo "                Order allow,deny" | sudo tee -a $APACHE/$NAME

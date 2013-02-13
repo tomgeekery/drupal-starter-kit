@@ -35,8 +35,8 @@ rm package.xml
 sudo a2enmod rewrite
 
 # Setup htdocs in home folder
-mkdir /home/$USER/websites
-sudo ln -s /home/$USER/websites /var/www/$USER
+mkdir /home/$USER/htdocs
+sudo ln -s /home/$USER/htdocs /var/www/$USER
 
 # Setup git information.
 echo -n "Enter your name for git commits: "
