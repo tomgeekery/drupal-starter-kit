@@ -5,7 +5,8 @@ if [ -z $1 ]; then
 	exit 0
 fi
 
-NAME=$1
+NAME=${1:0:64}
+SQLNAME=${NAME:0:16}
 
 cd ~/htdocs
 drush make https://raw.github.com/tomgeekery/compro/master/make/compro.make $NAME
@@ -25,9 +26,9 @@ PASS=${PASS//a/@}
 
 read -s -p "Enter your MYSQL root user password: " SQLPASS
 mysql -uroot -p$SQLPASS -e "create database $NAME"
-mysql -uroot -p$SQLPASS -e "grant all on $NAME.* to $NAME@localhost identified by '$PASS'"
+mysql -uroot -p$SQLPASS -e "grant all on $NAME.* to $SQLNAME@localhost identified by '$PASS'"
 
-drush site-install compro --db-url=mysql://$NAME:$PASS@localhost/$NAME --account-name=maintenance --account-pass=$PASS --site-name=$NAME
+drush site-install compro --db-url=mysql://$SQLNAME:$PASS@localhost/$NAME --account-name=maintenance --account-pass=$PASS --site-name=$NAME
 
 APACHE=/etc/apache2/sites-available
 
@@ -61,13 +62,18 @@ echo Adding vhost entry to hosts file...
 echo 127.0.0.1"       "$NAME.local | sudo tee -a /etc/hosts
 echo Done.
 
+
 git init
 git add .
 git commit -m "Initial commit."
+git branch -m master stage
+git branch qa
+git branch prod
 
-echo Visit the new site @ http://$NAME.local
-echo Username: maintenance
-echo Password: $PASS
+
+# echo Visit the new site @ http://$NAME.local
+# echo Username: maintenance
+# echo Password: $PASS
 
 chmod 444 sites/default/settings.php
 
