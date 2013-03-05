@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+  ServerName $NAME.local
+  ServerAlias *.$NAME.local
+  DirectoryIndex index.php index.html
+  DocumentRoot /home/$USER/htdocs/$NAME
+
+  <Directory /home/$USER/htdocs/$NAME>
+    Options -Indexes FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  </Directory>
+
+  ErrorLog /var/log/apache2/$NAME.local_error.log
+  CustomLog /var/log/apache2/$NAME.local_access.log combined
+</VirtualHost>
