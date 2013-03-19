@@ -45,6 +45,8 @@ echo -n "Enter your email for git commits: "
 read GIT_EMAIL
 git config --global user.name "'"$GIT_NAME"'"
 git config --global user.email $GIT_EMAIL
+# Set pretty colors for git.
+git config --global --add color.ui true
 cp .gitignore_global ~/
 git config --global core.excludesfile ~/.gitignore_global
 
