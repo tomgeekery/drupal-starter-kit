@@ -3,9 +3,8 @@
 # Script is intended to take a fresh install of Ubuntu 12.04 and prepare
 # it for local Drupal development.
 
-# Update all packages.
+# Update apt.
 sudo apt-get update
-sudo apt-get upgrade -y
 
 # Install lamp stack.
 sudo apt-get install lamp-server^ -y
