@@ -28,7 +28,7 @@ read -s -p "Enter your MYSQL root user password: " SQLPASS
 mysql -uroot -p$SQLPASS -e "create database $NAME"
 mysql -uroot -p$SQLPASS -e "grant all on $NAME.* to $SQLNAME@localhost identified by '$PASS'"
 
-drush site-install compro --db-url=mysql://$SQLNAME:$PASS@localhost/$NAME --account-name=maintenance --account-pass=$PASS --site-name=$NAME
+drush site-install compro --db-url=mysql://$SQLNAME:$PASS@localhost/$NAME --account-name=admin --account-pass=$PASS --site-name=$NAME
 
 APACHE=/etc/apache2/sites-available
 
@@ -71,9 +71,9 @@ git branch qa
 git branch prod
 
 
-# echo Visit the new site @ http://$NAME.local
-# echo Username: maintenance
-# echo Password: $PASS
+echo Visit the new site @ http://$NAME.local
+echo Username: admin
+echo Password: $PASS
 
 chmod 444 sites/default/settings.php
 
