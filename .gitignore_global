@@ -56,3 +56,4 @@ sites/*/private
 nbproject
 .svn
 *.komodoproject
+.sass-cache
