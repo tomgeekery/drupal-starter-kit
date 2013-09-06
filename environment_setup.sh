@@ -52,9 +52,6 @@ git config --global core.excludesfile ~/.gitignore_global
 # Restart apache.
 sudo service apache2 restart
 
-# Install Geany for basic code editing.
-sudo apt-get install geany geany-plugins -y
-
 # Display message with instructions what to do next.
 echo ""
 echo "Congrats!  Your Ubuntu install is ready for Drupal development."
