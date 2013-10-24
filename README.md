@@ -16,7 +16,7 @@ enables the following: LAMP server components (Apache, MySQL, PHP),
 Additional php and misc packages (phpmyadmin, php-pear, php-gd, make, 
 git), Upload Progress, Drush, mod_rewrite, Create an htdocs folder in 
 the user's home directory, User name and email for git commits, Global 
-.gitignore file suited well for Drupal, Geany IDE for basic code editing
+.gitignore file suited well for Drupal
 
 The create_drupal_site.sh script will do the following: Create a 
 database, Install latest stable version of Drupal, Uses a custom make 
