@@ -36,8 +36,8 @@ sudo touch $APACHE/$NAME
 
 echo Wrote the following to $APACHE/$NAME
 echo "<VirtualHost *:80>" | sudo tee -a $APACHE/$NAME
-echo "        ServerName "$NAME.local | sudo tee -a $APACHE/$NAME
-echo "        ServerAlias *."$NAME.local | sudo tee -a $APACHE/$NAME
+echo "        ServerName "$NAME.dev | sudo tee -a $APACHE/$NAME
+echo "        ServerAlias *."$NAME.dev | sudo tee -a $APACHE/$NAME
 echo "        DirectoryIndex index.php index.html" | sudo tee -a $APACHE/$NAME
 echo "        DocumentRoot /home/"$USER"/htdocs/"$NAME | sudo tee -a $APACHE/$NAME
 echo "        <Directory /home/"$USER"/htdocs/"$NAME">" | sudo tee -a $APACHE/$NAME
@@ -46,8 +46,8 @@ echo "                AllowOverride All" | sudo tee -a $APACHE/$NAME
 echo "                Order allow,deny" | sudo tee -a $APACHE/$NAME
 echo "                allow from all" | sudo tee -a $APACHE/$NAME
 echo "        </Directory>" | sudo tee -a $APACHE/$NAME
-echo "        ErrorLog /var/log/apache2/"$NAME.local_error.log | sudo tee -a $APACHE/$NAME
-echo "        CustomLog /var/log/apache2/"$NAME.local_access.log combined | sudo tee -a $APACHE/$NAME
+echo "        ErrorLog /var/log/apache2/"$NAME.dev_error.log | sudo tee -a $APACHE/$NAME
+echo "        CustomLog /var/log/apache2/"$NAME.dev_access.log combined | sudo tee -a $APACHE/$NAME
 echo "</VirtualHost>" | sudo tee -a $APACHE/$NAME
 
 echo Activating site...
@@ -59,9 +59,8 @@ sudo service apache2 restart
 echo Done.
 
 echo Adding vhost entry to hosts file...
-echo 127.0.0.1"       "$NAME.local | sudo tee -a /etc/hosts
+echo 127.0.0.1"       "$NAME.dev | sudo tee -a /etc/hosts
 echo Done.
-
 
 git init
 git add .
@@ -69,7 +68,6 @@ git commit -m "Initial commit."
 git branch -m master stage
 git branch qa
 git branch prod
-
 
 echo Visit the new site @ http://$NAME.local
 echo Username: admin
