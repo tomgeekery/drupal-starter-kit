@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ -z $1 ]; then
-	echo "Usage: create_drupal_site.sh newprojectname"
-	exit 0
+  echo "Usage: create_drupal_site.sh newprojectname"
+  exit 0
 fi
 
 NAME=${1:0:64}
@@ -69,7 +69,7 @@ git branch -m master stage
 git branch qa
 git branch prod
 
-echo Visit the new site @ http://$NAME.local
+echo Visit the new site @ http://$NAME.dev
 echo Username: admin
 echo Password: $PASS
 
